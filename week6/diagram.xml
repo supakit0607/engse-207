@@ -1,0 +1,84 @@
+<mxGraphModel dx="1281" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="user" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="User App" vertex="1">
+      <mxGeometry height="60" width="30" x="40" y="250" as="geometry" />
+    </mxCell>
+    <mxCell id="gateway" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" value="API Gateway&#xa;(Nginx / Kong)" vertex="1">
+      <mxGeometry height="260" width="100" x="150" y="150" as="geometry" />
+    </mxCell>
+    <mxCell id="user_svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="User Service" vertex="1">
+      <mxGeometry height="60" width="120" x="350" y="80" as="geometry" />
+    </mxCell>
+    <mxCell id="user_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff;" value="User DB" vertex="1">
+      <mxGeometry height="60" width="60" x="520" y="80" as="geometry" />
+    </mxCell>
+    <mxCell id="order_svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Order Service" vertex="1">
+      <mxGeometry height="60" width="120" x="350" y="180" as="geometry" />
+    </mxCell>
+    <mxCell id="order_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff;" value="Order DB&#xa;(NoSQL)" vertex="1">
+      <mxGeometry height="60" width="60" x="520" y="180" as="geometry" />
+    </mxCell>
+    <mxCell id="rest_svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Restaurant Service" vertex="1">
+      <mxGeometry height="60" width="120" x="350" y="280" as="geometry" />
+    </mxCell>
+    <mxCell id="rest_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff;" value="Rest. DB" vertex="1">
+      <mxGeometry height="60" width="60" x="520" y="280" as="geometry" />
+    </mxCell>
+    <mxCell id="pay_svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Payment Service" vertex="1">
+      <mxGeometry height="60" width="120" x="350" y="380" as="geometry" />
+    </mxCell>
+    <mxCell id="pay_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff;" value="Pay DB" vertex="1">
+      <mxGeometry height="60" width="60" x="520" y="380" as="geometry" />
+    </mxCell>
+    <mxCell id="mq" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Message Broker&#xa;(RabbitMQ)" vertex="1">
+      <mxGeometry height="80" width="140" x="750" y="170" as="geometry" />
+    </mxCell>
+    <mxCell id="e1" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;" target="user_svc">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e2" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;" target="order_svc">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e3" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;" target="rest_svc">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e4" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;" target="pay_svc">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="d1" edge="1" parent="1" source="user_svc" target="user_db">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="d2" edge="1" parent="1" source="order_svc" target="order_db">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="d3" edge="1" parent="1" source="rest_svc" target="rest_db">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="d4" edge="1" parent="1" source="pay_svc" target="pay_db">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="u1" edge="1" parent="1" source="user" target="gateway">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="mq1" edge="1" parent="1" source="order_svc" style="edgeStyle=orthogonalEdgeStyle;dashed=1;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="410" y="150" />
+          <mxPoint x="824" y="150" />
+        </Array>
+        <mxPoint x="414" y="190" as="sourcePoint" />
+        <mxPoint x="824" y="180" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="mq2" edge="1" parent="1" source="pay_svc" style="edgeStyle=orthogonalEdgeStyle;dashed=1;html=1;entryX=0.55;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;" target="mq">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="410" y="460" />
+          <mxPoint x="827" y="460" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+  </root>
+</mxGraphModel>
